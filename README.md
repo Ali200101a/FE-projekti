@@ -57,8 +57,33 @@ In Vite config, `/api` is proxied to backend server at `http://127.0.0.1:3000`.
 ## 7. AI note
 AI were used for small tasks like text formatting, structure suggestions, and small UI improvements.
 
-## 8. How to run locally
+## 8. Ohjelmistotestaus
+
+Frontendille on toteutettu automaattinen hyväksymistesti Robot Framework -työkalulla.
+
+### Tehtävä 2 – Kirjautumistesti
+
+- Testi varmistaa, että kirjautumissivu toimii oikein oikeilla tunnuksilla
+- Käyttää Robot Framework Browser Library -kirjastoa
+- Testitiedosto: `tests/login_test.robot`
+- Testi ajettiin komennolla: `python -m robot -d outputs tests/login_test.robot`
+- Testi läpäistiin onnistuneesti
+
+### Tehtävä 3 – Web form -testi
+
+- Testi testaa ulkoisen Web form -esimerkkisivun kenttien toimintaa
+- Käyttää Robot Framework Browser Library -kirjastoa
+- Testitiedosto: `tests/web_form_test.robot`
+- Testi ajettiin komennolla: `python -m robot -d outputs tests/web_form_test.robot`
+- Testi läpäistiin onnistuneesti
+
+Tarkempi dokumentaatio löytyy tiedostosta [TESTAUS.md](TESTAUS.md).
+
+## 9. How to run locally
+
 ```bash
 npm install
 npm run dev
+```
+
 Then open the local Vite URL (usually http://localhost:5173).

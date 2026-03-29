@@ -1,8 +1,8 @@
 // ============================
-// Fetch API page logic
+// منطق صفحة Fetch API
 // ============================
 
-// عناصر الصفحة
+// الحصول على مراجع لجميع عناصر DOM في الصفحة
 const btnGetAll = document.querySelector('#btn-get-all');
 const btnClear = document.querySelector('#btn-clear');
 const itemsList = document.querySelector('#items-list');
@@ -15,10 +15,10 @@ const singleItemBox = document.querySelector('#single-item');
 const addForm = document.querySelector('#add-form');
 const updateForm = document.querySelector('#update-form');
 
-// ملاحظة: بفضل vite proxy تقدر تستخدم /api مباشرة
+// نقطة نهاية API الخلفية - البروكسي Vite يحول /api إلى http://127.0.0.1:3000
 const BASE_URL = '/api/items';
 
-// Toast صغير
+// عرض الإشعارات للمستخدم مع الإخفاء التلقائي بعد 2.5 ثانية
 let toastTimer = null;
 function toast(message, type = 'info') {
   if (!toastEl) return;
@@ -33,7 +33,7 @@ function toast(message, type = 'info') {
   }, 2500);
 }
 
-// تحويل الرد إلى JSON حتى لو صار خطأ
+// تحليل استجابة JSON بأمان - يعيد null في حالة فشل التحليل
 async function readJsonSafe(res) {
   try {
     return await res.json();
@@ -42,7 +42,7 @@ async function readJsonSafe(res) {
   }
 }
 
-// رسم قائمة العناصر (بدون undefined)
+// تحديث DOM بقائمة العناصر المستلمة من الـ backend
 function renderItems(items) {
   if (!itemsList) return;
 
@@ -73,7 +73,7 @@ function renderItems(items) {
     .join('');
 }
 
-// GET all
+// إرسال طلب GET إلى الـ backend لجلب جميع العناصر
 async function getAllItems() {
   try {
     const res = await fetch(BASE_URL);
@@ -94,7 +94,7 @@ async function getAllItems() {
   }
 }
 
-// GET by id
+// إرسال طلب GET لجلب عنصر واحد بواسطة ID
 async function getItemById(id) {
   try {
     const res = await fetch(`${BASE_URL}/${id}`);
@@ -116,7 +116,7 @@ async function getItemById(id) {
   }
 }
 
-// DELETE by id
+// إرسال طلب DELETE لحذف عنصر من الـ backend
 async function deleteItemById(id) {
   try {
     const res = await fetch(`${BASE_URL}/${id}`, { method: 'DELETE' });
@@ -137,7 +137,7 @@ async function deleteItemById(id) {
   }
 }
 
-// POST add item
+// إرسال طلب POST لإنشاء عنصر جديد على الـ backend
 async function addItem(payload) {
   try {
     const res = await fetch(BASE_URL, {
@@ -162,7 +162,7 @@ async function addItem(payload) {
   }
 }
 
-// PUT update item
+// إرسال طلب PUT لتحديث عنصر موجود
 async function updateItem(id, payload) {
   try {
     const res = await fetch(`${BASE_URL}/${id}`, {
@@ -187,7 +187,7 @@ async function updateItem(id, payload) {
   }
 }
 
-// أحداث الأزرار
+// ربط مستمعي الأحداث بالأزرار
 if (btnGetAll) btnGetAll.addEventListener('click', getAllItems);
 
 if (btnClear)
@@ -197,7 +197,7 @@ if (btnClear)
     toast('Cleared view', 'info');
   });
 
-// Events للـ forms
+// معالجة إرسال النماذج مع التحقق من الصحة
 if (getByIdForm) {
   getByIdForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -219,10 +219,11 @@ if (deleteByIdForm) {
 if (addForm) {
   addForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    // الحصول على قيم النموذج من حقول الإدخال
     const name = document.querySelector('#add-name')?.value?.trim();
     const weight = Number(document.querySelector('#add-weight')?.value);
 
-    // الاسم مهم. الوزن اختياري (حسب backend)
+    // التحقق من الحقول المطلوبة
     if (!name) return toast('Fill name', 'error');
 
     const payload = { name };
@@ -250,7 +251,7 @@ if (updateForm) {
   });
 }
 
-// Events للأزرار داخل القائمة (Info/Delete)
+// معالجة النقرات على الأزرار المنشأة ديناميكيًا في قائمة العناصر
 if (itemsList) {
   itemsList.addEventListener('click', (e) => {
     const btn = e.target.closest('button');
@@ -266,4 +267,5 @@ if (itemsList) {
   });
 }
 
+// تحميل جميع العناصر عند تحميل الصفحة لأول مرة
 getAllItems();

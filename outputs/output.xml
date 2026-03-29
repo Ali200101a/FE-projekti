@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-03-29T13:38:56.370080" rpa="false" schemaversion="5">
+<suite id="s1" name="Web Form Test" source="C:\Users\alith\Documents\FE WEEK2\fe-week2\tests\web_form_test.robot">
+<test id="s1-t1" name="Web Form Test" line="8">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-03-29T13:38:56.652634" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\alith\\Documents\\FE WEEK2\\fe-week2\\outputs\\browser\\traces\\temp\\aafeca00-4b81-408c-9343-013cfe24feaf"}</msg>
+<msg time="2026-03-29T13:38:56.690993" level="INFO">Starting Browser process C:\Users\alith\AppData\Roaming\Python\Python314\site-packages\Browser\wrapper\index.js using at 127.0.0.1:49245</msg>
+<msg time="2026-03-29T13:38:58.101553" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\alith\\Documents\\FE WEEK2\\fe-week2\\outputs\\browser\\traces\\temp\\aafeca00-4b81-408c-9343-013cfe24feaf"}</msg>
+<arg>chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-03-29T13:38:56.651287" elapsed="1.450697"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-03-29T13:39:00.745567" level="INFO">Successfully initialized new page object and opened url: https://www.selenium.dev/selenium/web/web-form.html</msg>
+<msg time="2026-03-29T13:39:00.745766" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-03-29T13:38:58.110223" elapsed="2.636136"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-03-29T13:39:00.748991" level="INFO">Fills the text 'hello' in the given field.</msg>
+<arg>css=input[name="my-text"]</arg>
+<arg>hello</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-03-29T13:39:00.747534" elapsed="0.057209"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-03-29T13:39:00.805826" level="INFO">Fills the text '123456' in the given field.</msg>
+<arg>css=input[name="my-password"]</arg>
+<arg>123456</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-03-29T13:39:00.805145" elapsed="0.017854"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-03-29T13:39:00.824128" level="INFO">Fills the text 'test text' in the given field.</msg>
+<arg>css=textarea[name="my-textarea"]</arg>
+<arg>test text</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-03-29T13:39:00.823456" elapsed="0.018133"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-03-29T13:39:00.843395" level="INFO">Selects the option(s) 2 by attribute SelectAttribute.value from element css=select.</msg>
+<arg>css=select</arg>
+<arg>value</arg>
+<arg>2</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-03-29T13:39:00.842179" elapsed="0.047613"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-03-29T13:39:00.890949" level="INFO">Fills the text 'Seattle' in the given field.</msg>
+<arg>css=input[name="my-datalist"]</arg>
+<arg>Seattle</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-03-29T13:39:00.890276" elapsed="0.018260"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-03-29T13:39:00.909742" level="INFO">Clicks the element 'text=Default checkbox'.</msg>
+<arg>text=Default checkbox</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-03-29T13:39:00.908946" elapsed="0.155963"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-03-29T13:39:01.066238" level="INFO">Clicks the element 'text=Default radio'.</msg>
+<arg>text=Default radio</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-03-29T13:39:01.065355" elapsed="0.040574"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-03-29T13:39:01.106970" level="INFO">Clicks the element 'text=Submit'.</msg>
+<arg>text=Submit</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-03-29T13:39:01.106355" elapsed="0.216026"/>
+</kw>
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-03-29T13:39:01.635844" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-03-29T13:39:01.322801" elapsed="0.313339"/>
+</kw>
+<status status="PASS" start="2026-03-29T13:38:56.649791" elapsed="4.986881"/>
+</test>
+<status status="PASS" start="2026-03-29T13:38:56.372413" elapsed="5.275258"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Web Form Test" id="s1" pass="1" fail="0" skip="0">Web Form Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

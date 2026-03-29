@@ -1,13 +1,13 @@
-// الحصول على عناصر حاسبة BMI من الصفحة
+// الحصول على عناصر حاسبة BMI إذا كانت موجودة في الصفحة
 const heightInput = document.querySelector('#height');
 const weightInput = document.querySelector('#weight');
 const button = document.querySelector('#calcBtn');
 const result = document.querySelector('#result');
 
-// إذا وجد زر BMI، إضافة مستمع للنقر
+// منطق حساب BMI (يعمل فقط إذا كان الزر موجودًا)
 if (button) {
   button.addEventListener('click', () => {
-    // تحويل القيم إلى أرقام
+    // الحصول على قيم إدخال المستخدم
     const heightCm = Number(heightInput.value);
     const weightKg = Number(weightInput.value);
 
@@ -17,7 +17,7 @@ if (button) {
       return;
     }
 
-    // حساب BMI: الوزن بالكيلو / (الطول بالمتر)²
+    // حساب BMI: الوزن / (الطول بالمتر)²
     const heightM = heightCm / 100;
     const bmi = weightKg / (heightM * heightM);
 
@@ -26,36 +26,35 @@ if (button) {
   });
 }
 
-// الحصول على عناصر نموذج التسجيل
+// الحصول على عناصر نموذج التسجيل إذا كانت موجودة
 const registerForm = document.querySelector('#register-form');
 const registerMessage = document.querySelector('#register-message');
 
-// إذا وجد نموذج التسجيل، إضافة مستمع للإرسال
+// منطق تسجيل المستخدم (يعمل فقط إذا كان النموذج موجودًا)
 if (registerForm) {
   registerForm.addEventListener('submit', function(event) {
-    // منع إعادة تحميل الصفحة
+    // منع إعادة تحميل الصفحة عند إرسال النموذج
     event.preventDefault();
     
-    // الحصول على قيم الحقول
+    // الحصول على قيم النموذج
     const username = document.querySelector('#reg-username').value;
     const email = document.querySelector('#reg-email').value;
     const password = document.querySelector('#reg-password').value;
     
-    // إرسال طلب POST لتسجيل مستخدم جديد
+    // إرسال طلب POST إلى الـ backend لتسجيل مستخدم جديد
     fetch('/api/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, email, password })
     })
-      // تحويل الرد إلى JSON مع حالة النجاح
+      // تحليل الاستجابة مع الاحتفاظ بكود الحالة
       .then(res => res.json().then(data => ({ ok: res.ok, data })))
       .then(({ ok, data }) => {
         console.log('Register response:', data);
         if (ok) {
-          // عرض رسالة نجاح
+          // عرض رسالة النجاح ومسح النموذج
           registerMessage.textContent = 'Registration successful!';
           registerMessage.style.color = 'green';
-          // مسح النموذج
           registerForm.reset();
         } else {
           // عرض رسالة الخطأ من الـ backend
@@ -64,10 +63,29 @@ if (registerForm) {
         }
       })
       .catch(err => {
-        // عرض رسالة خطأ إذا فشل الاتصال
+        // معالجة أخطاء الشبكة
         console.error('Register error:', err);
         registerMessage.textContent = 'Registration failed: ' + err.message;
         registerMessage.style.color = 'red';
       });
+  });
+}
+
+// Login logic
+const loginBtn = document.querySelector('#login-btn');
+const loginMessage = document.querySelector('#login-message');
+
+if (loginBtn) {
+  loginBtn.addEventListener('click', () => {
+    const username = document.querySelector('#login-username').value;
+    const password = document.querySelector('#login-password').value;
+
+    if (username === 'testuser' && password === 'test123') {
+      loginMessage.textContent = 'Login successful';
+      loginMessage.style.color = 'green';
+    } else {
+      loginMessage.textContent = 'Invalid username or password';
+      loginMessage.style.color = 'red';
+    }
   });
 }

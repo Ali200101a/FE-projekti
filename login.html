@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login - FE Week 2</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="bmi.html">BMI Calculator</a>
+      <a href="fetch.html">Fetch API</a>
+      <a href="user-crud.html">User Management</a>
+      <a href="entries.html">Diary</a>
+      <a href="login.html">Login</a>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <h1>Login</h1>
+      <p>Sign in to your account</p>
+    </header>
+
+    <!-- Login Form -->
+    <main class="container">
+      <section class="form-section">
+        <div class="form-card">
+          <h2>Sign In</h2>
+
+          <label for="login-username">Username</label>
+          <input id="login-username" type="text" placeholder="Enter username" />
+
+          <label for="login-password">Password</label>
+          <input id="login-password" type="password" placeholder="Enter password" />
+
+          <button id="login-btn">Login</button>
+
+          <p id="login-message"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © FE Week 2
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
