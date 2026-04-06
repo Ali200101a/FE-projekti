@@ -22,3 +22,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment variables
+.env
+
+# Crypto keys
+private_key.json
+public_key.key
+*.key
+
+# Robot Framework outputs
+outputs/
+playwright-log.txt

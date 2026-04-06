@@ -38,3 +38,19 @@ function renderCards(list) {
 }
 
 renderCards(entries);
+
+// Add Diary Entry form logic
+const addEntryForm = document.querySelector('#add-entry-form');
+
+addEntryForm?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const date = document.querySelector('#entry-date').value;
+  const text = document.querySelector('#entry-text').value;
+
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `<div><strong>${date}</strong></div><div>${text}</div>`;
+  cardsContainer.appendChild(card);
+
+  addEntryForm.reset();
+});

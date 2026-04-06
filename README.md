@@ -55,7 +55,7 @@ In Vite config, `/api` is proxied to backend server at `http://127.0.0.1:3000`.
 - Fetch API docs: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 
 ## 7. AI note
-AI were used for small tasks like text formatting, structure suggestions, and small UI improvements.
+AI was used for small tasks like text formatting, structure suggestions, and minor UI improvements.
 
 ## 8. Ohjelmistotestaus
 
@@ -75,6 +75,30 @@ Frontendille on toteutettu automaattinen hyväksymistesti Robot Framework -työk
 - Käyttää Robot Framework Browser Library -kirjastoa
 - Testitiedosto: `tests/web_form_test.robot`
 - Testi ajettiin komennolla: `python -m robot -d outputs tests/web_form_test.robot`
+- Testi läpäistiin onnistuneesti
+
+### Tehtävä 4 – Päiväkirjamerkinnän lisääminen
+
+- Testi varmistaa, että uuden päiväkirjamerkinnän lisääminen toimii oikein
+- Käyttää Robot Framework Browser Library -kirjastoa
+- Testitiedosto: [tests/diary_entry_test.robot](tests/diary_entry_test.robot)
+- Testi ajettiin komennolla: `python -m robot -d outputs tests/diary_entry_test.robot`
+- Testi läpäistiin onnistuneesti
+
+### Tehtävä 5 – Kirjautumistesti .env-tiedoilla
+
+- Testi varmistaa kirjautumisen toimivuuden lukemal käyttäjätunnuksen ja salasanan ympäristömuuttujista
+- Käyttää Robot Framework Browser Library -kirjastoa
+- Testitiedosto: [tests/login_env_test.robot](tests/login_env_test.robot)
+- Testi ajettiin komennolla: `python -m robot -d outputs tests/login_env_test.robot`
+- Testi läpäistiin onnistuneesti
+
+### Tehtävä 6 – Kirjautumistesti salatuilla tunnuksilla
+
+- Testi varmistaa kirjautumisen toimivuuden käyttäen CryptoLibrary-kirjastolla salattuja tunnuksia
+- Käyttää Robot Framework Browser Library -kirjastoa sekä CryptoLibrary-kirjastoa
+- Testitiedosto: [tests/login_crypto_test.robot](tests/login_crypto_test.robot)
+- Testi ajettiin komennolla: `python -m robot -d outputs tests/login_crypto_test.robot`
 - Testi läpäistiin onnistuneesti
 
 Tarkempi dokumentaatio löytyy tiedostosta [TESTAUS.md](TESTAUS.md).

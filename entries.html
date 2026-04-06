@@ -23,6 +23,13 @@
       <button id="login-btn" style="padding: 1rem 2.5rem; font-size: 1.25rem;">Login</button>
     </div>
 
+    <!-- Add Diary Entry form -->
+    <form id="add-entry-form" style="max-width:400px; margin: 1.5rem auto; display:flex; flex-direction:column; gap:0.75rem;">
+      <input type="date" id="entry-date" required />
+      <textarea id="entry-text" placeholder="Write your diary note..." rows="4" required></textarea>
+      <button type="submit" id="add-entry-btn">Add Entry</button>
+    </form>
+
     <div id="cards-container"></div>
 
     <!-- Modal -->
