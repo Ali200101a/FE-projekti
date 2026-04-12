@@ -359,3 +359,56 @@ Kirjautumistesti salatuilla tunnuksilla toteutettiin onnistuneesti CryptoLibrary
 ---
 
 *Tekoälyä on käytetty tekstin jäsentelyyn ja muotoiluun. Testien toteutus, suoritus ja tarkistus on tehty itse.*
+
+---
+
+## Tehtävä 7 – Lokien ja raporttien ohjaus outputs-kansioon
+
+### Tavoite
+Tavoitteena oli ohjata Robot Frameworkin tuottamat loki- ja raporttitiedostot erilliseen `outputs`-hakemistoon, jotta testitulokset löytyvät yhdestä paikasta.
+
+### Toteutus
+Testit suoritettiin käyttäen Robot Frameworkin `-d outputs` -parametria:
+
+python -m robot -d outputs tests/login_test.robot  
+python -m robot -d outputs tests/diary_entry_test.robot  
+python -m robot -d outputs tests/login_env_test.robot  
+python -m robot -d outputs tests/login_crypto_test.robot  
+
+### Tulostiedostot
+
+Testien ajon jälkeen `outputs`-kansioon muodostuvat:
+
+- output.xml  
+- log.html  
+- report.html  
+
+### Yhteenveto
+
+Robot Framework -testien lokit ja raportit ohjattiin onnistuneesti `outputs`-hakemistoon. Tämä selkeyttää projektin rakennetta ja helpottaa testitulosten tarkastelua.
+
+---
+
+
+## Tehtävä 8 – Projektin julkaisu GitHub Pagesissa
+
+### Tavoite
+
+Tavoitteena oli julkaista frontend-projekti GitHub Pages -palvelussa, jotta sovellus on käytettävissä suoran URL-osoitteen kautta ilman paikallista kehityspalvelinta.
+
+### Julkaisu
+
+Projekti julkaistiin GitHub Pagesin avulla. Julkaisun jälkeen sovellus on saatavilla seuraavasta osoitteesta:
+
+https://ali200101a.github.io/FE-projekti/
+
+### Havainnot
+
+- Projekti latautuu suoraan selaimessa
+- Navigointi toimii GitHub Pages -ympäristössä
+- JavaScript-toiminnot toimivat oikein
+- Sovellus ei vaadi paikallista palvelinta
+
+### Yhteenveto
+
+Frontend-projekti julkaistiin onnistuneesti GitHub Pages -palvelussa. Sovellus on käytettävissä suoran URL-osoitteen kautta ja toimii ilman paikallista kehitysympäristöä.
