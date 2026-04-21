@@ -31,6 +31,6 @@ private_key.json
 public_key.key
 *.key
 
-# Robot Framework outputs
-outputs/
+# Playwright log (NOT needed)
 playwright-log.txt
+outputs/playwright-log.txt
